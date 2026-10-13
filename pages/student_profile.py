@@ -15,7 +15,12 @@ def show_student_profile():
     col1, col2 = st.columns(2)
 
     with col1:
-        name = st.text_input("👤 Full Name")
+        
+        name = st.text_input(
+        "👤 Full Name",
+        key="student_profile_full_name"
+        )
+
         email = st.text_input("📧 Email")
         phone = st.text_input("📱 Phone Number")
 
