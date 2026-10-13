@@ -599,6 +599,39 @@ if st.session_state.menu == "🏠 Home":
         ("📈", "Progress Tracking", "Track scores and preparation progress."),
         ("🎯", "Build Confidence", "Practice consistently and become interview ready.")
     ]
+for col, feature in zip(cols, features[start:start + 3]):
+    
+    st.markdown("---")
+    st.markdown(
+        '<div class="feature-title">📚 Interview Reference Links</div>',
+        unsafe_allow_html=True
+    )
+
+    st.markdown(
+        "Explore these trusted websites to improve your "
+        "interview skills, coding knowledge, and confidence."
+    )
+
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.markdown("### 💻 Coding Practice")
+        st.markdown("[LeetCode](https://leetcode.com/)")
+        st.markdown("[HackerRank](https://www.hackerrank.com/)")
+
+    with col2:
+        st.markdown("### 🎯 Interview Preparation")
+        st.markdown("[GeeksforGeeks](https://www.geeksforgeeks.org/)")
+        st.markdown("[InterviewBit](https://www.interviewbit.com/)")
+
+    with col3:
+        st.markdown("### 🗣️ HR Interview Tips")
+        st.markdown(
+            "[Indeed Career Guide](https://www.indeed.com/career-advice/interviewing)"
+        )
+        st.markdown(
+            "[Glassdoor Interviews](https://www.glassdoor.com/Interview/index.htm)"
+        )
 
     for start in range(0, 6, 3):
         cols = st.columns(3, gap="medium")
