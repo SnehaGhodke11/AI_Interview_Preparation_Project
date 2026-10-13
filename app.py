@@ -591,6 +591,7 @@ if st.session_state.menu == "🏠 Home":
         unsafe_allow_html=True
     )
 
+  
     features = [
         ("🤖", "AI Interview Coach", "Practice interview questions with AI-powered guidance."),
         ("📊", "Skill Assessment", "Evaluate your skills and identify improvement areas."),
@@ -599,8 +600,27 @@ if st.session_state.menu == "🏠 Home":
         ("📈", "Progress Tracking", "Track scores and preparation progress."),
         ("🎯", "Build Confidence", "Practice consistently and become interview ready.")
     ]
-for col, feature in zip(cols, features[start:start + 3]):
-    
+
+    # Display Key Features
+    for start in range(0, len(features), 3):
+        cols = st.columns(3, gap="medium")
+
+        for col, feature in zip(cols, features[start:start + 3]):
+            with col:
+                feature_html = f"""
+                <div class="feature">
+                    <div class="feature-icon">{feature[0]}</div>
+                    <div class="feature-name">{feature[1]}</div>
+                    <div class="feature-text">{feature[2]}</div>
+                </div>
+                """
+
+                st.markdown(
+                    textwrap.dedent(feature_html),
+                    unsafe_allow_html=True
+                )
+
+    # Interview Reference Links
     st.markdown("---")
     st.markdown(
         '<div class="feature-title">📚 Interview Reference Links</div>',
@@ -608,11 +628,11 @@ for col, feature in zip(cols, features[start:start + 3]):
     )
 
     st.markdown(
-        "Explore these trusted websites to improve your "
-        "interview skills, coding knowledge, and confidence."
+        "Explore these websites to improve your interview skills, "
+        "coding knowledge, and confidence."
     )
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3 = st.columns(3, gap="medium")
 
     with col1:
         st.markdown("### 💻 Coding Practice")
@@ -633,26 +653,19 @@ for col, feature in zip(cols, features[start:start + 3]):
             "[Glassdoor Interviews](https://www.glassdoor.com/Interview/index.htm)"
         )
 
-    for start in range(0, 6, 3):
-        cols = st.columns(3, gap="medium")
-
-        for col, feature in zip(cols, features[start:start + 3]):
-            with col:
-                feature_html = f"""
-                <div class="feature">
-                    <div class="feature-icon">{feature[0]}</div>
-                    <div class="feature-name">{feature[1]}</div>
-                    <div class="feature-text">{feature[2]}</div>
-                </div>
-                """
-
-                st.markdown(
-                    textwrap.dedent(feature_html),
-                    unsafe_allow_html=True
-                )
-
 
 elif st.session_state.menu == "👤 Student Profile":
+
+    module_header(
+        "👤",
+        "Student Profile",
+        "Create your personalized profile and tell the system about your education, interests and technical skills.",
+        "🎓 Add your academic details<br>💻 Select your technical skills<br>🚀 Build your personalized preparation journey",
+        "stu_profile.jpg"
+    )
+
+    show_student_profile()
+
 
     module_header(
         "👤",
