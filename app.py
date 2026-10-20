@@ -667,17 +667,6 @@ elif st.session_state.menu == "👤 Student Profile":
     show_student_profile()
 
 
-    module_header(
-        "👤",
-        "Student Profile",
-        "Create your personalized profile and tell the system about your education, interests and technical skills.",
-        "🎓 Add your academic details<br>💻 Select your technical skills<br>🚀 Build your personalized preparation journey",
-        "stu_profile.jpg"
-    )
-
-    show_student_profile()
-
-
 elif st.session_state.menu == "📊 Skill Assessment":
 
     module_header(
